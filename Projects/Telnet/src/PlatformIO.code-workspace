@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"name": "PlatformIO",
+			"path": "../../PlatformIO"
+		},
+		{
+			"name": "primeira aula",
+			"path": "../../primeira aula"
+		}
+	],
+	"settings": {}
+}
