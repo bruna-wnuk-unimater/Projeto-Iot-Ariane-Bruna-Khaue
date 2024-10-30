@@ -1,9 +1,15 @@
 ## Projeto-Iot-Ariane-Bruna-Khaue
 
 # OTA
+<<<<<<< HEAD
 ``` cpp
 include <ESP8266WiFi.h>  
 include <ArduinoOTA.h>  
+=======
+```cpp 
+#include <ESP8266WiFi.h>  
+#include <ArduinoOTA.h>  
+>>>>>>> 66ddf2d1e94dc580939f0ce484e77c032774c991
 ```
 * Bibliotecas utilizadas para conectar o ESP8266 ao Wi-Fi e para atualizar o OTA.
 ``` cpp
@@ -133,11 +139,18 @@ void loop() {
   WiFi.begin(ssid, password);  
  ```
 ↓ Tentativa de conexão com WiFi  
+<<<<<<< HEAD
 ``` cpp
   while (WiFi.waitForConnectResult() != WL_CONNECTED) {  
     Serial.println("Conexão falhou, tentando novamente...");  
     WiFi.begin(ssid, password);  
     delay(5000); ↓ Aguarda 5 segundos antes de tentar novamente  
+=======
+  **while (WiFi.waitForConnectResult() != WL_CONNECTED) {**  
+    **Serial.println("Conexão falhou, tentando novamente...");**  
+    **WiFi.begin(ssid, password);**  
+    **delay(5000);** -> Aguarda 5 segundos antes de tentar novamente  
+>>>>>>> 66ddf2d1e94dc580939f0ce484e77c032774c991
   }  
 ```
 ↓ Configuração da atualização OTA  
@@ -183,6 +196,7 @@ void loop() {
   ```
 
 ↓ Aceita conexão de clientes Telnet  
+<<<<<<< HEAD
 ``` cpp
   if (server.hasClient()) {  
     if (!client || !client.connected()) {  
@@ -195,6 +209,19 @@ void loop() {
     }  
   }  
  ```
+=======
+  **if (server.hasClient()) {**  
+    **if (!client || !client.connected()) {**  
+      **if (client) client.stop(); -> Encerra conexão com cliente anterior, se existir**
+      **client = server.available(); -> Aceita novo cliente**  
+      **Serial.println("Cliente conectado via Telnet.");**  
+      **client.println("Digite '1' para ligar o LED e '0' para desligar o LED.");**  
+    **} else {**  
+      **server.available().stop(); ->  Encerra conexão extra, mantendo um único cliente**  
+    }  
+  }  
+```` cpp
+>>>>>>> 66ddf2d1e94dc580939f0ce484e77c032774c991
 ↓ Comandos do cliente para controle do LED  
 ``` cpp
   if (client && client.connected() && client.available()) {  
@@ -212,6 +239,11 @@ void loop() {
     }  
   }  
 }  
+<<<<<<< HEAD
 ```
 
   
+=======
+````
+  
+>>>>>>> 66ddf2d1e94dc580939f0ce484e77c032774c991
