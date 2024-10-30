@@ -1,9 +1,10 @@
 ## Projeto-Iot-Ariane-Bruna-Khaue
 
 # OTA
- 
-__include <ESP8266WiFi.h>__  
-__include <ArduinoOTA.h>__  
+```cpp 
+#include <ESP8266WiFi.h>  
+#include <ArduinoOTA.h>  
+```
 * Bibliotecas utilizadas para conectar o ESP8266 ao Wi-Fi e para atualizar o OTA.
 
 __const char* ssid = "Bruna";  
@@ -119,7 +120,7 @@ __void loop() {
   **while (WiFi.waitForConnectResult() != WL_CONNECTED) {**  
     **Serial.println("Conexão falhou, tentando novamente...");**  
     **WiFi.begin(ssid, password);**  
-    **delay(5000);** ↓ Aguarda 5 segundos antes de tentar novamente  
+    **delay(5000);** -> Aguarda 5 segundos antes de tentar novamente  
   }  
 
 ↓ Configuração da atualização OTA  
@@ -160,15 +161,15 @@ __void loop() {
 ↓ Aceita conexão de clientes Telnet  
   **if (server.hasClient()) {**  
     **if (!client || !client.connected()) {**  
-      **if (client) client.stop(); ↓ Encerra conexão com cliente anterior, se existir**
-      **client = server.available(); ↓ Aceita novo cliente**  
+      **if (client) client.stop(); -> Encerra conexão com cliente anterior, se existir**
+      **client = server.available(); -> Aceita novo cliente**  
       **Serial.println("Cliente conectado via Telnet.");**  
       **client.println("Digite '1' para ligar o LED e '0' para desligar o LED.");**  
     **} else {**  
-      **server.available().stop(); ↓ Encerra conexão extra, mantendo um único cliente**  
+      **server.available().stop(); ->  Encerra conexão extra, mantendo um único cliente**  
     }  
   }  
- 
+```` cpp
 ↓ Comandos do cliente para controle do LED  
   **if (client && client.connected() && client.available()) {**  
     **char command = client.read();**  
@@ -185,5 +186,5 @@ __void loop() {
     }  
   }  
 }  
-
+````
   
